@@ -21,35 +21,35 @@ app.use(bodyParser.json())
 
 
 
-// app.post("/create", async (req, res) => {
-//   const {
-//     name,
-//     image,
-//     specialization,
-//     experience,
-//     location,
-//     date,
-//     slots,
-//     fee,
-//   } = req.body;
-//   console.log(req.body);
-//   try {
-//     const Posts = new Createmodel({
-//       name: name,
-//       image: image,
-//       specialization: specialization,
-//       experience: experience,
-//       location: location,
-//       date: date,
-//       slots: slots,
-//       fee: fee,
-//     });
-//     await Posts.save();
-//     res.send({ msg: "Post Uploaded succesfully" });
-//   } catch (err) {
-//     res.send({ msg: "something went wrong" ,err:err});
-//   }
-// });
+app.post("/create", async (req, res) => {
+  const {
+    name,
+    image,
+    specialization,
+    experience,
+    location,
+    date,
+    slots,
+    fee,
+  } = req.body;
+  console.log(req.body);
+  try {
+    const Posts = new Createmodel({
+      name: name,
+      image: image,
+      specialization: specialization,
+      experience: experience,
+      location: location,
+      date: date,
+      slots: slots,
+      fee: fee,
+    });
+    await Posts.save();
+    res.send({ msg: "Post Uploaded succesfully" });
+  } catch (err) {
+    res.send({ msg: "something went wrong" ,err:err});
+  }
+});
 
 app.listen(process.env.PORT, async () => {
   try {
