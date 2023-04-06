@@ -36,7 +36,7 @@ Userrouter.post("/login", async (req, res) => {
       bcrypt.compare(password, user[0].password, (err, result) => {
         if (result) {
           const token = jwt.sign({ _id: user[0]._id }, "masai");
-          res.send({ msg: "login succesfully", token: token });
+          res.send({ msg: "login succesfully", token: token, email: email,password:password });
         } else {
           res.send({ msg: "wrong crenditial" });
         }

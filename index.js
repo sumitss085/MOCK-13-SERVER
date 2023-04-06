@@ -4,7 +4,7 @@ const connection = require("./Config/db");
 const bodyParser = require("body-parser");
 const Userrouter = require("./Routes/User.routes");
 const authenticate = require("./Middleware/authentication");
-
+const CreateRouter = require("./Routes/Create.routes");
 require("dotenv").config();
 const app = express();
 app.use(express.json());
@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
 app.use("/user", Userrouter);
 app.use(authenticate);
 app.use(bodyParser.json())
+
+app.use("/create", CreateRouter);
 
 
 
